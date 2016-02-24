@@ -9,10 +9,10 @@ i='Wsabrh';
 console.log(i);
 console.log(null);
 console.log(undefined);
-console.log(null==undefined);
-console.log(null===undefined);
-console.log('0'==0);
-console.log('0'===0);
+console.log("null==undefined"+null==undefined);
+console.log("null===undefined"+null===undefined);
+console.log("'0'==0", '0'==0);
+console.log("'0'===0", '0'===0);
 
 var lista=[1,2,'uogiugig9ig'];
 console.log(lista);
@@ -29,11 +29,27 @@ lista.splice(1,3);//.splice('a partir de que elemento quer deletar','até que el
 console.log(lista);
 
 function f(a,b){
-	console.log('soma ' +(a + b));
-	console.log('a ' + a);
-	console.log('b ' + b);
+	if(a === undefined){
+		a = 3;
+	}
+	console.log('a = ' + a);
+	console.log('b = ' + b);
+	console.log('a + b = ' +(a + b));
+	console.log(arguments);
 }
 
-f(1, 2);
 f();
-f(1)
+f(1);
+f(1, 2);
+f(1, 2, 3, 4);
+
+var obj={};
+console.log(obj.nome);
+var obj={'nome': 'renzo'};
+console.log(obj.nome);
+var obj={'nome': 'renzo', 1:2};
+console.log(obj['nome']);
+console.log(obj[1]);
+var obj={'nome': 'renzo', 1:2, 'hobbies':['Futebol', 'Video Game'], 'pai': {'nome': 'Pai'}};
+console.log(obj);
+console.log(f());
