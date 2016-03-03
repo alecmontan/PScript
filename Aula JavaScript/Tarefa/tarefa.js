@@ -1,12 +1,14 @@
 function gerarListener(){
 	var obj={contador: 0};
 	var listeners=[];
-	function executar(){
+	obj.executar = function(){
 		obj.contador++;
 		var evento = {"contador": obj.contador};
+		return evento.contador;
 	}
-	function adicionarOuvinte(func){
+	obj.adicionarOuvinte = function(func){
 		listeners.push(func());
+		return func();
 	}
 	return obj;
 }
@@ -17,8 +19,10 @@ var listener = function(evento){
 	console.log(evento.contador);
 }
 
+
 contadorObserver.adicionarOuvinte(listener);
 
-contadorObserver.executar();
-contadorObserver.executar();
-contadorObserver.executar();
+console.log(contadorObserver.executar());
+console.log(contadorObserver.executar());
+console.log(contadorObserver.executar());
+console.log(contadorObserver.executar());
